@@ -1,0 +1,134 @@
+Cadence terminal Log : 
+[student@ECE lab1]$ ncverilog +access+r +sv +nccoverage+all digital_clock.sv clock_interface.sv clock_test.sv clock_tb.sv
+ncverilog(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+Recompiling... reason: file './digital_clock.sv' is newer than expected.
+	expected: Wed Feb 25 11:05:45 2026
+	actual:   Wed Feb 25 11:13:55 2026
+file: digital_clock.sv
+	module worklib.digital_clock:sv
+		errors: 0, warnings: 0
+file: clock_interface.sv
+	interface worklib.clock_interface:sv
+		errors: 0, warnings: 0
+file: clock_test.sv
+	program worklib.clock_test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+	Extracting FSMs for coverage:
+		worklib.digital_clock
+		worklib.clock_test
+		worklib.clock_tb
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+ncelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.clock_tb:sv <0x040aee6b>
+			streams:   6, words:  2595
+		worklib.clock_test:sv <0x3b82cc69>
+			streams:  15, words: 15217
+		worklib.digital_clock:sv <0x7a96007f>
+			streams:   3, words:  1620
+	Building instance specific data structures.
+ncelab: *W,CGPIDF: Covergroup "per_instance" option , by default, is set as 0.
+ncelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Interfaces:              1       1
+		Programs:                1       1
+		Registers:              12      12
+		Scalar wires:            3       -
+		Vectored wires:          4       -
+		Named events:            2       2
+		Always blocks:          10      10
+		Initial blocks:          6       6
+		Pseudo assignments:      3       3
+		Assertions:              2       2
+		Covergroup Instances:    0       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.clock_tb:sv
+Loading snapshot worklib.clock_tb:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim> source /opt/cadence/installs/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> run
+Success : Simulation completed.
+Simulation complete via $finish(1) at time 40015 NS + 5
+./clock_test.sv:55         $finish;
+ncsim> exit
+ncsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+ncsim: *W,CGPIZE: Instance coverage for covergroup instance "coverage" will not be dumped to database as per_instance option value is set to 0:./clock_test.sv, 26.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  clock_tb(clock_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_12580977_1e94acf9.ucm
+  data               :  ./cov_work/scope/test/icc_12580977_1e94acf9.ucd
+[student@ECE lab1]$ simvision digital_clock.vcd
+simvision(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+txe(64): 15.20-s086: (c) Copyright 1995-2026 Cadence Design Systems, Inc.
+[student@ECE lab1]$ imc -gui
+*W,user_attr.import_by_path_not_supported: Import User Defined Attribute by VMANAGER_PATH is not supported. Please use Profile editor in order to import new user attributes.
+[student@ECE lab1]$ 
+
+
+
+
+Edaplayground log : 
+[2026-02-24 12:44:53 UTC] vlib work && vlog '-timescale' '1ns/1ns' design.sv testbench.sv  && vsim -c -do "vsim +access+r; run -all; exit"  
+VSIMSA: Configuration file changed: `/home/runner/library.cfg'
+ALIB: Library "work" attached.
+work = ./work/work.lib
+MESSAGE "Unit top modules: clock_tb."
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 0[s]."
+done
+# Aldec, Inc. Riviera-PRO version 2025.04.139.9738 built for Linux64 on May 30, 2025.
+# HDL, SystemC, and Assertions simulator, debugger, and design environment.
+# (c) 1999-2025 Aldec, Inc. All rights reserved.
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# KERNEL: PLI/VHPI kernel's engine initialization done.
+# PLI: Loading library '/usr/share/Riviera-PRO/bin/libsystf.so'
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.0 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.1 [s]
+# SLP: Finished : 0.1 [s]
+# SLP: 0 primitives and 4 (57.14%) other processes in SLP
+# SLP: 5 (4.67%) signals in SLP and 16 (14.95%) interface signals
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Riviera-PRO EDU Edition. The performance of simulation is reduced.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5354 kB (elbread=459 elab2=4882 kernel=12 sdf=0)
+# KERNEL: ASDB file was created in location /home/runner/dataset.asdb
+# KERNEL: coverage = 100.00 %
+# KERNEL: Simulation completed.
+# RUNTIME: Info: RUNTIME_0068 testbench.sv (104): $finish called.
+# KERNEL: Time: 40015 ns,  Iteration: 1,  Instance: /clock_tb/test,  Process: @INITIAL#93_0@.
+# KERNEL: stopped at time: 40015 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+# ACDB: Covergroup Coverage data has been saved to "fcover.acdb" database.
+# VSIM: Simulation has finished.
+Finding VCD file...
+./digital_clock.vcd
+[2026-02-24 12:44:55 UTC] Opening EPWave...
+Done
